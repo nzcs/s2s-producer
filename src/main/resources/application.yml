@@ -1,6 +1,18 @@
 server:
   port: 8082
 
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:cert/nt-ms.jks
+    key-store-password: nt-service
+    key-alias: nt-ms
+    key-store-type: JKS
+    key-store-provider: SUN
+    trust-store: classpath:cert/nt-ms.jks
+    trust-store-password: nt-service
+    trust-store-type: JKS
+
 
 keycloak:
   realm: cmopg
@@ -9,3 +21,8 @@ keycloak:
   resource: cmo_backend
   bearer-only: true
   use-resource-role-mappings: true
+
+
+logging:
+  level:
+    root: debug
